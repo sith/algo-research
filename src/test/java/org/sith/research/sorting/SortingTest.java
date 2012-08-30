@@ -57,4 +57,33 @@ public class SortingTest {
 
     }
 
+    @Test
+    public void testMergeSort() {
+
+        MergeSort sort = new MergeSort();
+        Character[] input = {'c', 'd', 'a', 'w', 'e'};
+//        Character[] input = {'C', 'B', 'D', 'A'};
+//        Character[] input = {'C', 'B'};
+        sort.sort(input);
+        System.out.println();
+        for (Character character : input) {
+            System.out.print(character);
+        }
+    }
+
+
+    @Test
+    public void testQuickSort() {
+
+        QuickSort sort = new QuickSort();
+        Character[] input = {'c', 'd', 'a', 'w', 'e'};
+        sort.sort(input);
+        System.out.println();
+        for (Character integer : input) {
+            System.out.print(integer + " ");
+        }
+        System.out.println();
+    }
+
+
 }

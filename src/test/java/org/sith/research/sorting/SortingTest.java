@@ -2,6 +2,8 @@ package org.sith.research.sorting;
 
 import org.junit.Test;
 
+import java.util.Random;
+
 
 public class SortingTest {
 
@@ -61,7 +63,31 @@ public class SortingTest {
     public void testMergeSort() {
 
         MergeSort sort = new MergeSort();
-        Character[] input = {'c', 'd', 'a', 'w', 'e'};
+        Character[] input = {'J', 'E', 'T', 'Y', 'Z', 'V', 'M', 'U', 'B', 'O', 'I', 'G'};
+//        Character[] input = {'J', 'I', 'A', 'X', 'C', 'F', 'H', 'Q', 'K', 'Y', 'B', 'R'};
+        sort.sort(input);
+        /* System.out.println();
+        for (Character character : input) {
+            System.out.print(character);
+        }*/
+
+        /*  B H D Q X O N E J Z Y I
+merge(0, 0, 1):  B H D Q X O N E J Z Y I
+merge(0, 1, 2):  B D H Q X O N E J Z Y I
+merge(3, 3, 4):  B D H Q X O N E J Z Y I
+merge(3, 4, 5):  B D H O Q X N E J Z Y I
+merge(0, 2, 5):  B D H O Q X N E J Z Y I
+merge(6, 6, 7):  B D H O Q X E N J Z Y I
+merge(6, 7, 8):  B D H O Q X E J N Z Y I*/
+
+
+    }
+
+    @Test
+    public void testBottomUpMergeSort() {
+
+        BottomUpMergeSort sort = new BottomUpMergeSort();
+        Character[] input = {'T', 'H', 'X', 'B', 'F', 'P', 'V', 'E', 'U', 'K'};
 //        Character[] input = {'C', 'B', 'D', 'A'};
 //        Character[] input = {'C', 'B'};
         sort.sort(input);
@@ -74,16 +100,68 @@ public class SortingTest {
 
     @Test
     public void testQuickSort() {
+/*
+
+
+        Integer[] array = new Integer[1000000];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(10000);
+
+        }
+*/
+
 
         QuickSort sort = new QuickSort();
-        Character[] input = {'c', 'd', 'a', 'w', 'e'};
-        sort.sort(input);
-        System.out.println();
-        for (Character integer : input) {
+
+//        Integer[] array = new Integer[]{                     1, 3, 2, 2, 5, };
+
+        Character[] array = new Character[]{'N', 'J', 'D', 'R', 'M', 'Z', 'B', 'F', 'P', 'C', 'K', 'U'};
+//        Character[] array = new Character[]{'B', 'A', 'A', 'B', 'A', 'B', 'A', 'B', 'B', 'A', 'B', 'A'};
+        sort.sort(array);
+
+
+        /* System.out.println();
+        for (Integer integer : array) {
             System.out.print(integer + " ");
         }
-        System.out.println();
+        System.out.println();*/
+    }
+
+    @Test
+    public void testDejkstraQuickSort() {
+
+        /* Integer[] array = new Integer[1000000];
+                Random random = new Random();
+                for (int i = 0; i < array.length; i++) {
+                    array[i] = random.nextInt(10000);
+
+                }
+        */
+        DejkstraQuickSort sort = new DejkstraQuickSort();
+
+//        Integer[] array = new Integer[]{                     1, 3, 2, 2, 5, };
+
+        Character[] array = new Character[]{'N', 'T', 'W', 'N', 'N', 'N', 'X', 'B', 'J', 'Y'};
+        sort.sort(array);
+
+        /* for (Integer integer : array) {
+            System.out.print(integer + " ");
+        }
+        System.out.println();*/
     }
 
 
+    @Test
+    public void testName() throws Exception {
+
+
+        double result = Math.log(10000000) / Math.log(2);
+
+        System.out.println(result);
+
+
+
+
+    }
 }

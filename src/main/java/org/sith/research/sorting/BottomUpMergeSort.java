@@ -1,10 +1,38 @@
 package org.sith.research.sorting;
 
-
-public class MergeSort {
+/**
+ * Created with IntelliJ IDEA.
+ * User: sith
+ * Date: 8/28/12
+ * Time: 7:30 PM
+ * To change this template use File | Settings | File Templates.
+ */
+public class BottomUpMergeSort {
 
 
     public void sort(Comparable[] input) {
+
+        Comparable[] aux = new Comparable[input.length];
+
+        int N = aux.length;
+        for (int sz = 1; sz < N; sz += sz) {
+            for (int lo = 0; lo < N - sz; lo += sz + sz) {
+                merge(input, aux, lo, lo + sz - 1, Math.min(lo + sz + sz - 1, N - 1));
+                print(input);
+            }
+        }
+    }
+
+    protected void print(Comparable[] input) {
+
+        for (Comparable t : input) {
+            System.out.print(t + " ");
+        }
+        System.out.println();
+
+    }
+
+    /*public void sort(Comparable[] input) {
 
         Comparable[] aux = new Comparable[input.length];
 
@@ -28,19 +56,9 @@ public class MergeSort {
             return;
         }
         merge(input, aux, lo, mid, hi);
-        print(input);
 
 
-    }
-
-    protected void print(Comparable[] input) {
-
-        for (Comparable t : input) {
-            System.out.print(t + " ");
-        }
-        System.out.println();
-
-    }
+    }*/
 
     private void merge(Comparable[] input, Comparable[] aux, int lo, int mid, int hi) {
 

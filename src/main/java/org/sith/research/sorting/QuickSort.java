@@ -2,10 +2,10 @@ package org.sith.research.sorting;
 
 
 public class QuickSort<T extends Comparable> extends AbstractSort<T> {
-    @Override
+
     public void sort(T[] input) {
 
-        sort(input, 0, input.length-1);
+        sort(input, 0, input.length - 1);
     }
 
     private void sort(T[] array, int lo, int hi) {
@@ -13,8 +13,8 @@ public class QuickSort<T extends Comparable> extends AbstractSort<T> {
             return;
         }
 
-        int partition = partition(array, lo,hi);
-
+        int partition = partition(array, lo, hi);
+        print(array);
         sort(array, lo, partition - 1);
         sort(array, partition + 1, hi);
     }
@@ -34,7 +34,7 @@ public class QuickSort<T extends Comparable> extends AbstractSort<T> {
                 }
             }
 
-            while (array[--j].compareTo(array[lo]) > 0) {
+            while (array[lo].compareTo(array[--j]) < 0) {
                 if (j == lo) {
                     break;
                 }
@@ -48,7 +48,14 @@ public class QuickSort<T extends Comparable> extends AbstractSort<T> {
         exchange(array, lo, j);
 
 
-        return i;
+        return j;
+
+    }
+
+    protected void exchange(T[] input, int to, int from) {
+        T tmp = input[to];
+        input[to] = input[from];
+        input[from] = tmp;
 
     }
 }

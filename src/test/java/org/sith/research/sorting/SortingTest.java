@@ -2,6 +2,7 @@ package org.sith.research.sorting;
 
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.Random;
 
 
@@ -155,11 +156,25 @@ merge(6, 7, 8):  B D H O Q X E J N Z Y I*/
     @Test
     public void testName() throws Exception {
 
+        Integer[] array = new Integer[10000000];
+        Random random = new Random();
+        for (int i = 0; i < array.length; i++) {
+            array[i] = random.nextInt(100000);
 
-        double result = Math.log(10000000) / Math.log(2);
+        }
 
-        System.out.println(result);
 
+        int max = Integer.MIN_VALUE;
+        long start = System.currentTimeMillis();
+        /*for (Integer integer : array) {
+            if (integer>max) {
+                max = integer;
+            }
+        }*/
+        Arrays.sort(array);
+        long finish= System.currentTimeMillis();
+        System.out.println(finish-start);
+        System.out.println(max);
 
 
 
